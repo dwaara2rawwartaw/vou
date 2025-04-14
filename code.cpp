@@ -1,24 +1,38 @@
 #include <iostream>
 #include <cmath>
+#include <stdio.h>
+#include "pineapple.h"
 using namespace std;
-int main()
+int Cal(int first, char x, int second)
 {
-    int first, second;
-    string x;
-    if (x=="+")
+    switch (x)
     {
-        cout << first + second << endl;
+        case '+': 
+        return Sum(first, second); 
+        break;
+        case '-': 
+        return Raz(first, second); 
+        break;
+        case '*': 
+        return Umn(first, second); 
+        break;
+        case '/':
+        return Del(first, second); 
+        break;
+        default:
+        cerr << "Neverno" << endl;
     }
-    if (x=="-")
+    return 0;
+}
+int main(int argc, char** argv)
+{
+    if (argc = 3)
     {
-        cout << first - second << endl;
+        int first = atof(argv[1]);
+        int second = atof(argv[3]);
+        char x = argv[2][0];
+        int result = Cal(first,x,second);
+        cout << "Polu4ilos: " << first << " " << x << " " << second << " =" << " " << result;
     }
-    if (x=="*")
-    {
-        cout << first * second << endl;
-    }
-    if (x=="/")
-    {
-        cout << first / second << endl;
-    }
+    return 0;
 }
